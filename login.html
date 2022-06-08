@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>LogIn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        #login {
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+            margin: auto;
+            width: 25%;
+            margin-top: 200px;
+            height: 280px;
+            background-color: aliceblue;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        h1 {
+            color: red;
+            text-align: center;
+            margin-bottom: 0%;
+        }
+        
+        p {
+            margin-bottom: 0%;
+        }
+        
+        button {
+            border: solid red;
+            border-radius: 10px;
+            width: 98%;
+            display: block;
+            height: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: large;
+            margin-top: 25px;
+        }
+        
+        input {
+            width: 60%;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="login">
+            <h1>
+                Log In
+            </h1>
+            <form>
+                <p>Email</p>
+                <input type="email" id="email" placeholder="Enter your Email">
+                <p>Password</p>
+                <input type="password" id="passwd" placeholder="Enter your Password ">
+                <button>LOGIN</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    info = JSON.parse(localStorage.getItem("signup"))
+    console.log(info)
+
+    document.querySelector("form").addEventListener("submit", function submit() {
+        event.preventDefault();
+
+        var in_mail = document.querySelector("#email").value
+        var in_pass = document.querySelector("#passwd").value
+
+        if (in_mail == null || in_pass == null) {
+            alert("Enter an input")
+        } else {
+            info.forEach(function(elem) {
+                if (in_mail == elem.email && in_pass == elem.passwd) {
+                    alert("Login Successfull")
+
+                } else {
+                    alert("Enter an valid input")
+                }
+            })
+        }
+
+
+    })
+</script>
