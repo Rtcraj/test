@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>COUNTER USING LS</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1 id="h1">0</h1>
+        <button id="increase">increase</button>
+        <button id="decrease">decrease</button>
+    </div>
+</body>
+
+</html>
+<script>
+    h1 = document.querySelector("#h1")
+    h1.innerText = JSON.parse(localStorage.getItem("count")) || 0
+
+    var count = 0
+    document.querySelector("#increase").addEventListener("click", increase)
+
+    function increase() {
+        count++
+        h1.innerText = count
+        localStorage.setItem("count", JSON.stringify(count))
+    }
+    decrease = document.querySelector("#decrease").addEventListener("click", decrease)
+
+    function decrease() {
+        count--
+        h1.innerText = count
+        localStorage.setItem("count", JSON.stringify(count))
+    }
+</script>
